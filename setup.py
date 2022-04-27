@@ -6,7 +6,7 @@ VERSION = '1.0'
 setup(
     name="mkdocs-br-industrial-theme",
     version=VERSION,
-    url='https://github.com/mkdocs/mkdocs-basic-theme',
+    url='https://github.com/brcclark/mkdocs-br-theme',
     license='BSD',#?????
     description='Theme to match with the standard B&R Industrial Automation documentation styling.',
     author='Connor Trostel',
