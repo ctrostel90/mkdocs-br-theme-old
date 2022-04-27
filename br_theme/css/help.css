@@ -1,0 +1,1382 @@
+/*===================================================================
+	Stylesheet: help.css
+	Version:    2.0
+	-------------------------------------------------------------------
+	Stylesheet for SMC HTML help (Automation Help, APROL help, CHM)
+	This stylesheet is part of:
+	brHelp system for B&R Automation Help (JavaScript/CSS library using jquery)
+	------------------------------------------------------------------- 
+	History:
+	2.0 @ 2020/09/29 16:21:44:
+		First entry in history table.
+===================================================================*/
+
+/*===================================================================
+  Import of other AS help stylesheet
+  -------------------------------------------------------------------
+  This import is only done, because some users, who create html files
+  with an editor use the wrong stylesheet "help.css" instead of 
+  "styles.css" and they do not want to change this.
+===================================================================*/
+@import url("styles.css");
+
+/* Version information as css property */
+#AutomationHelp #Stylesheet-Version { content: "2.0"; }
+#AutomationHelp #Stylesheet-BuildDate { content: "2020/09/29 16:21:44"; }
+#AutomationHelp #Stylesheet-Name { content: "brHelp system for B&R Automation Help (JavaScript/CSS library using jquery)"; }
+
+/*-------------------------------------------------------------------
+  Reset CSS settings
+*/
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, h7, h8, h9, h10, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+}
+/* End of reset CSS settings
+-------------------------------------------------------------------*/
+
+
+/*-------------------------------------------------------------------
+  Basic formatting of HTML help
+*/
+sup { top: -0.4em; }
+sub { top: 0.2em }
+sup, sub { padding: 0 0 0 0.2em; position: relative; }
+body {
+  line-height: 1.5;
+  background-color: transparent;
+  color: #000000;
+  margin: 1.5em 0.8em;
+  font-family: Verdana, Arial, Helvetica, sans-serif;
+  font-size: 9pt;
+}
+ol, ul {
+  list-style: none;
+}
+blockquote, q {
+  quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+  content: '';
+  content: none;
+}
+table {
+  background-color: transparent;
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+/* Endof basic formatting of HTML help
+-------------------------------------------------------------------*/
+
+
+/* ==================================================
+   Basic settings of stylesheet
+*/
+
+h1, h2, h3, h4, h5, h6 { font-family: Arial, Helvetica, sans-serif; font-weight: bold; }
+h1 { font-size: 14pt; border-bottom: 1pt solid; }
+h2, h3 { font-size: 13pt; }
+h3 { font-style: italic;}
+h4 { font-size: 12pt; }
+h5 { font-size: 11pt; font-style: italic;}
+h6 { font-size: 10pt; font-weight: bold;}
+h7 { font-size: 9pt; font-weight: bold; font-style: italic; }
+h8 { font-size: 9pt; font-style: italic; text-decoration: underline; }
+h9 { font-size: 9pt; text-decoration: underline; }
+h10 { font-size: 9pt; font-style: italic;}
+pre { font-family: Courier New, monospace; font-size: 9pt; }
+
+h1 { margin-bottom: 1em; }
+h2, h3, h4, h5, h6 { margin-top: 1em; }
+h7, h8, h9, h10    { margin-top: 0.5em; display: block; }
+p, pre, ul, ol, dl { margin-top: 1em; }
+
+b, strong { font-weight: bold;   }
+i, em     { font-style:  italic; }
+.underline { text-decoration: underline; }
+
+
+/* ==================================================
+   Start of navigate.css: navigation for CHM (MS HTMLHelp)
+   ==> for AS versions before 3.0.80
+
+   TODO: These settings only apply to MS HTMLHelp (CHM-Help)
+         ==> If no MS HTMLHelp is generated from SMC anymore,
+             this section can be deleted!
+*/
+
+/* Formatting for section navigation */
+div.NavList { margin-top: 2em; }
+p.NavListIntro { font-weight: bold; margin-top: 2em; }
+p.NavListTitle {
+  background: url(icons/sym_list_this.png) no-repeat;
+  margin-left: 1.5em; margin-bottom: 0.5em;
+  padding-left: 2em;
+  font-weight: bold; font-size: 8pt;
+  line-height: 1.5;
+}
+div.NavList ul { margin: 0 0 0 5em; }
+div.NavList li { line-height: 14pt; font-size: 8pt; }
+div.NavList li.NavPage { list-style-image: url(icons/sym_list_page.png); }
+div.NavList li.NavBook { list-style-image: url(icons/sym_list_book.png); }
+div.NavList a { text-decoration: none; position: relative; top: -0.25em; }
+div.NavList a:hover { text-decoration: underline; }
+@media print { div.NavList { display: none; } }
+
+/* Formatting for Prev/Next navigation */
+table.Nav { margin-top: 1em; }
+table.Nav td.Nav {
+  background-color: #eeeeee;
+  padding: 2px 4px;
+  vertical-align: top;
+}
+p.Nav, p.NavCenter, p.NavRight, a.Nav {
+  font-size: 8pt;
+  margin: 0;
+}
+p.NavCenter { text-align: center; }
+p.NavRight { text-align: right; }
+
+a.Nav { text-decoration: none; }
+a.Nav:hover { 
+  text-decoration: underline;
+}
+p.Nav a.Nav { 
+  display: block;
+  background-image: url(icons/nav-prev.png); 
+  background-repeat: no-repeat;
+  background-position: left top;
+  padding-left: 16px;
+}
+p.Nav a.Nav:hover {
+  background-image: url(icons/nav-prev-hover.png);
+  background-repeat: no-repeat;
+}
+p.NavCenter a.Nav {
+  
+}
+p.NavRight a.Nav {
+  display: block;
+  background-image: url(icons/nav-next.png); 
+  background-repeat: no-repeat;
+  background-position: right top;
+  padding-right: 16px;
+}
+p.NavRight a.Nav:hover {
+  background-image: url(icons/nav-next-hover.png);
+  background-repeat: no-repeat;
+}
+
+/* ----------------------------------------
+  ... Other formattings ...
+---------------------------------------- */
+.DoNotPrintNavItems { clear: both; }
+/*
+   End of navigate.css: navigation for CHM (MS HTMLHelp)
+   ================================================== */
+
+
+/*==================================================
+  ManualTitle
+*/
+div.ManualTitle {
+  position: fixed;
+	z-index: 20;
+  top: 0px; right: 0px;
+  padding: 2px 20px;
+  background-color: #eeeeee;
+  font-size: 8pt;
+  font-weight: bold;
+  border-left: 1px solid #b0b0b0;
+  border-bottom: 1px solid #b0b0b0;
+}
+
+
+/* ==================================================
+   Navigation in SMC
+*/
+
+/* Title of navigation section */
+p.Navigation { font-size: 11pt; font-weight: bold; margin-top: 2em; }
+
+/* List of navigation entries
+   (navigation created by SMC)
+*/
+ul.Navigation {
+  background-color: #f7f7f7;
+  padding-top: 0.5em;
+  padding-bottom: 0.5em;
+  list-style-type: disc;
+  list-style-position: outside;
+}
+ul.Navigation li      { margin-left: 2em; line-height: 1.5em; }
+ul.Navigation a       { text-decoration: none; }
+ul.Navigation a:hover { text-decoration: underline; }
+
+/* table with navigation elements (inserted from Br.Help.NavigationManager) */
+table.Navigation        { 
+	background-color: #f7f7f7; width: 100%; margin-top: 1em; 
+	border-top: 0.5em solid #f7f7f7;
+	border-bottom: 0.5em solid #f7f7f7;
+}
+td.Navigation           { background-color:#f7f7f7; padding-left: 1em; }
+td.Navigation a         { text-decoration: none; }
+td.Navigation a:hover   { text-decoration: underline; }
+
+/* ----------------------------------------
+  ... Formatting for printing ...
+---------------------------------------- */
+@media print {
+ .DoNotPrintNavItems { display: none; }
+}
+
+
+/*==================================================
+  Formatting for tables !
+*/
+
+/* General formattings for tables */
+th, td { vertical-align: top; text-align: left; }
+th[valign=top], td[valign=top] {
+  vertical-align: top;
+}
+th[valign=middle], td[valign=middle] {
+  vertical-align: middle;
+}
+th[valign=bottom], td[valign=bottom] {
+  vertical-align: bottom;
+}
+th.left, td.left {
+  text-align: left;
+}
+th.center, td.center {
+  text-align: center;
+}
+th.right, td.right {
+  text-align: right;
+}
+
+
+/*
+  General formattings for SMC table types:
+*/
+table.parameter_tab, table.num_tab, table.alt1_tab, table.alt2_tab, table:not([class]){
+  width: 100%;
+  margin-top: 1.5em;
+  margin-bottom: 1em;
+  empty-cells: show;
+  border-collapse: separate;
+  border-spacing: 2px;
+  border: 1px solid #cccccc;
+  border-right: 1px solid #777777;
+  border-bottom: 1px solid #777777;
+  background: transparent;
+}
+table.parameter_tab th, table.num_tab  th, table:not([class]) th:not([class]),
+table.parameter_tab td, table.num_tab  td, table:not([class]) td:not([class]),
+table.alt1_tab      th, table.alt2_tab th,
+table.alt1_tab      td, table.alt2_tab td {
+  padding: 0 0.5em 0.25em;
+}
+table.parameter_tab th, table.num_tab  th, table:not([class]) th:not([class]),
+table.alt1_tab      th, table.alt2_tab th {
+  background-color: #cccccc;
+  font-weight: bold;
+}
+table.parameter_tab, table.alt1_tab, table.alt2_tab, table:not([class])
+  { font-size: 8pt; }
+table.num_tab
+  { font-size: 9pt; }
+
+table.parameter_tab p, table:not([class]) p:not([class]),
+table.parameter_tab pre,
+table.num_tab p,
+table.num_tab pre,
+table.alt1_tab p,
+table.alt1_tab pre,
+table.alt2_tab p,
+table.alt2_tab pre {
+  margin: 0.25em 0 0;
+}
+table.parameter_tab ul, table:not([class]) ul:not([class]),
+table.num_tab ul,
+table.alt1_tab ul,
+table.alt2_tab ul {
+  margin-top: 0.5em;
+}
+table.parameter_tab p.table_desc,
+table.num_tab p.table_desc,
+table.alt1_tab p.table_desc,
+table.alt2_tab p.table_desc {
+  margin-top: 0.5em;
+}
+
+/* table type: parameter descritpion */
+table.parameter_tab th, table:not([class]) th:not([class]),
+table.alt1_tab      th,
+table.alt2_tab      th    { border: 1px solid #000000; }
+table.parameter_tab td, table:not([class]) td:not([class]),
+table.alt1_tab      td,
+table.alt2_tab      td    {
+    border: 1px solid #000000; border-top: 0;
+}
+table.parameter_tab td.subTitle,
+table.alt1_tab td.subTitle,
+table.alt2_tab td.subTitle {
+  background-color: #e7e7e7;
+  border: 1px solid #000000;
+  font-weight: bold;
+}
+
+
+/* table type: enumerations */
+table.num_tab th    { border-right: 1px solid #c0c0c0; }
+table.num_tab td    {
+    border-top:   1px solid #c0c0c0;
+    border-right: 1px solid #c0c0c0;
+    background-color: #eeeeee;
+}
+
+
+/* table types: Wechselnd 1 (alt1_tab) // Wechselnd 2 (alt2_tab) */
+
+table.alt1_tab td.even   {
+  background-color: #f7f7f7;
+}
+table.alt2_tab td.odd   {
+  background-color: #f7f7f7;
+}
+
+/* table types: technical data // order data */
+
+table.techdata, table.techdata { 
+	border-collapse: collapse; 
+	border: 1px solid #000000;
+}
+
+table.techdata th, 
+table.techdata td {
+	border: none;
+	border-left: 1px solid #000000;
+	border-right: 1px solid #000000;
+}
+
+table.techdata th.subTitle  {
+	background-color:#cccccc; 
+	font-weight: bold;
+	border-top: 1px solid #000000;
+}
+
+table.techdata td.subTitle {
+	background-color:#eeeeee; 
+	font-weight: bold;
+	border-top: 1px solid #000000;
+}
+
+table.techdata td.content-level0 {
+	border-top: 1px solid #888888;
+}
+
+table.techdata td.rest,
+table.techdata th.rest
+	{ text-align: center; }
+
+table.techdata td.rest.left,
+table.techdata th.rest.left
+	{ text-align: left; }
+
+table.techdata td.content-level3 p,
+table.techdata td.content-level4 p,
+table.techdata td.content-level5 p,
+table.techdata td.content-level6 p
+	{ margin: 0; }
+
+table.techdata td.content-level3,
+table.techdata td.content-level4,
+table.techdata td.content-level5,
+table.techdata td.content-level6 { 
+	border-top: 1px solid #dddddd; 
+	padding-bottom: 0;
+}
+
+table.techdata td.content-level3
+	{ padding-left: 1.5em; }
+
+table.techdata td.content-level4
+	{ padding-left: 2.5em; }
+
+table.techdata td.content-level5
+	{ padding-left: 3.5em; }
+
+table.techdata td.content-level6
+	{ padding-left: 4.5em; }
+
+table.techdata td.content-level3.rest,
+table.techdata td.content-level4.rest,
+table.techdata td.content-level5.rest,
+table.techdata td.content-level6.rest
+	{ padding-left: 0.5em; }
+
+
+/* table-type: no-lines */
+table.nolines_tab {
+  font-size: 8pt;
+  margin-top: 1em;
+  width: 100%;
+}
+table.nolines_tab > caption > p.table_desc {
+  margin-top: 0.5em;
+}
+table.nolines_tab > tbody > tr > th,
+table.nolines_tab > tbody > tr > td {
+  padding: 0; margin: 0;
+  border: none;
+  padding-right: 0.25em;
+}
+table.nolines_tab p {
+  margin-top: 0;
+}
+
+
+/* table type: legend */
+table.legend_tab {
+  margin-top: 1em;
+  width: 100%;
+}
+table.legend_tab > caption > p.table_desc {
+  margin-top: 0.5em;
+}
+table.legend_tab > tbody > tr > th,
+table.legend_tab > tbody > tr > td {
+  padding: 0; margin: 0;
+  border: none;
+  padding-right: 0.25em;
+}
+
+
+/* Excel tables */
+table.excel_tab  {
+  width: 100%;
+}
+table.excel_tab th,
+table.excel_tab td {
+  padding: 0.1em 0.25em;
+}
+table.excel_tab p {
+  margin: 0;
+}
+
+
+/* Change font size for some table types with standard font-size = 8pt */
+table.alt1_tab.font-min-4,
+table.alt2_tab.font-min-4,
+table.parameter_tab.font-min-4,
+table.nolines_tab.font-min-4     { font-size: 6pt; }
+
+table.alt1_tab.font-min-3,
+table.alt2_tab.font-min-3,
+table.parameter_tab.font-min-3,
+table.nolines_tab.font-min-3     { font-size: 6.5pt; }
+
+table.alt1_tab.font-min-2,
+table.alt2_tab.font-min-2,
+table.parameter_tab.font-min-2,
+table.nolines_tab.font-min-2     { font-size: 7pt; }
+
+table.alt1_tab.font-min-1,
+table.alt2_tab.font-min-1,
+table.parameter_tab.font-min-1,
+table.nolines_tab.font-min-1     { font-size: 7.5pt; }
+
+table.alt1_tab.font-std,
+table.alt2_tab.font-std,
+table.parameter_tab.font-std,
+table.nolines_tab.font-std       { }
+
+table.alt1_tab.font-plus1,
+table.alt2_tab.font-plus1,
+table.parameter_tab.font-plus1,
+table.nolines_tab.font-plus1     { font-size: 8.33pt; }
+
+table.alt1_tab.font-plus2,
+table.alt2_tab.font-plus2,
+table.parameter_tab.font-plus2,
+table.nolines_tab.font-plus2     { font-size: 8.66pt; }
+
+table.alt1_tab.font-plus3,
+table.alt2_tab.font-plus3,
+table.parameter_tab.font-plus3,
+table.nolines_tab.font-plus3     { font-size: 9pt; }
+
+
+/* Change font size for some table types with standard font-size = 9pt */
+
+table.matrix_tab.font-min-4,
+table.pmg_tab.font-min-4,
+table.num_tab.font-min-4         { font-size: 6pt; }
+
+table.matrix_tab.font-min-3,
+table.pmg_tab.font-min-3,
+table.num_tab.font-min-3         { font-size: 6.5pt; }
+
+table.matrix_tab.font-min-2,
+table.pmg_tab.font-min-2,
+table.num_tab.font-min-2         { font-size: 7pt; }
+
+table.matrix_tab.font-min-1,
+table.pmg_tab.font-min-1,
+table.num_tab.font-min-1         { font-size: 8pt; }
+
+table.matrix_tab.font-std,
+table.pmg_tab.font-std,
+table.num_tab.font-std           { }
+
+table.matrix_tab.font-plus1,
+table.pmg_tab.font-plus1,
+table.num_tab.font-plus1         { font-size: 10pt; }
+
+table.matrix_tab.font-plus2,
+table.pmg_tab.font-plus2,
+table.num_tab.font-plus2         { font-size: 11pt; }
+
+table.matrix_tab.font-plus3,
+table.pmg_tab.font-plus3,
+table.num_tab.font-plus3         { font-size: 12pt; }
+
+
+/*--------------------------------------------------
+  table footnotes
+*/
+table.tablefootnotes     { font-size: 8pt; }
+table.tablefootnotes *   { margin: 0; }
+table.tablefootnotes td  { padding-top: 0.25em; }
+
+table.tablefootnotes p.table-footnote-char {
+  text-align: right;
+  font-size: 85%;
+  position: relative; top: 0em;
+  width: 2em; padding-right: 0.75em;
+}
+
+
+/*--------------------------------------------------
+  legend element (table)
+*/
+table.legend     { font-size: 8pt; width: 98%; margin-left: 1%; margin-top: 1em; }
+table.legend *   { margin: 0; }
+table.legend td  { padding-top: 0.25em; }
+
+table.legend p.footnote-char {
+  text-align: right;
+  padding-right: 1em;
+  white-space: nowrap;
+}
+/* table.legend p.footnote-char:after { content: ")"; } */
+
+
+/* ==================================================
+   Modification of frames with SMC characterizations
+   --------------------------------------------------
+*/
+.no-border-all,
+tr.no-border-all > td,
+td.no-border-all          { border: 0 !important; }
+.no-border-bottom,
+tr.no-border-bottom > td,
+td.no-border-bottom       { border-bottom: 0 !important; }
+.no-border-left,
+tr.no-border-left > td,
+td.no-border-left         { border-left: 0 !important; }
+.no-border-left-right,
+tr.no-border-left-right > td,
+td.no-border-left-right   { border-left: 0 !important; border-right: 0 !important; }
+.no-border-right,
+tr.no-border-right > td,
+td.no-border-right        { border-right: 0 !important; }
+.no-border-top,
+tr.no-border-top > td,
+td.no-border-top          { border-top: 0 !important; }
+.no-border-top-bottom ,
+tr.no-border-top-bottom > td,
+td.no-border-top-bottom   { border-top: 0 !important; border-bottom: 0 !important; }
+
+
+
+/* ==================================================
+   code formatting
+   --------------------------------------------------
+*/
+span.codeinline { font-family: Courier New, monospace; }
+pre.code {
+  font-size: 8pt;
+  background-color: #EEEEEE;
+}
+div.codeBox { 
+  background-color: #eee;
+  margin: 1em 0; padding: 0;
+}
+div.codeBoxTitle {
+  font-size: 125%;
+  font-weight: bold;
+  line-height: 1.0;
+  background-color: #ddd;
+  padding: 4px 2px 2px;
+  clear: both;
+  height: 16px;
+}
+span.codeBoxButton {
+  margin-left: 4px;
+  margin-right: 4px;
+  padding: 0;
+  cursor: pointer;
+  float: left;
+  width:  16px;
+  height: 16px;
+}
+span.codeBoxMinimize,
+span.codeBoxMaximize {
+  float: right;
+}
+
+span.codeBoxSelectAll  { background-image: url(icons/codebox.select-all.png);}
+span.codeBoxMinimize   { background-image: url(icons/codebox.minimize.png);}
+span.codeBoxMaximize   { background-image: url(icons/codebox.maximize.png);}
+
+pre.code-example,
+pre.code {
+  max-height: 400px;
+  resize:   vertical;
+  overflow: auto;
+  padding: 0.5em;
+  margin: 0;
+  border: 2px solid #ddd;
+  clear: both;
+}
+
+@media print {
+  pre.code-example,
+  pre.code { max-height: none !important; height: auto !important;}
+  div.codeBoxTitle { display: none; }
+}
+
+/*--------------------------------------------------
+  SMC: content types
+*/
+
+.content-type.ct-gui-click          { font-weight:  bold; }
+.content-type.ct-gui-desc           { font-style: italic; }
+.content-type.ct-file-help-path     { font-style: italic; }
+.content-type.ct-constant-data-type { font-style: italic; }
+.content-type.ct-func-lib           { font-style: italic; }
+.content-type.ct-variable-name      { font-style: italic; }
+.content-type.ct-keystrokes         { font-weight:  bold; }
+
+/* Synonyms for search index */
+.blockRule.content-type.search-index-synonyms {
+    display: none;
+}
+/* Synonyms for search index ==> formatting for HTML preview inside SMC */
+.blockRule.content-type.search-index-synonyms.filter {
+    display: block;
+    position: relative;
+    float: right;
+    max-width: 256px;
+    border: 1px solid #4af !important;
+    border-radius:8px;
+    margin: 4px;
+    padding: 4px;
+    background: #ffe;
+    font-style: italic;
+    font-size: 8pt;
+    color: blue;
+}
+.blockRule.content-type.search-index-synonyms.filter p {
+    margin: auto;
+}
+.blockRule.content-type.search-index-synonyms.filter::before {
+    content: "Synonyms for search index:";
+    font-style:normal;
+    font-weight:bold;
+    border-bottom:1px solid #4af;
+    color: #08f;
+    width:100%;
+}
+
+
+/* ==================================================
+   SMC specific formattings
+   --------------------------------------------------
+*/
+
+/* --------------------------------------------------
+  SMC: formatting for version compare
+*/
+.INSERTED { background-color: #8efe5d; }
+.media-theme.INSERTED { border:4px solid #8efe5d; }
+.UPDATED { background-color: yellow!important; }
+.include-block.UPDATED, .include-content.UPDATED, .subsection-ct.UPDATED {
+    background-color: transparent!important;
+}
+.attributes-UPDATED { background-color: orange!important; }
+.fulltext-highlight { background-color: yellow; }
+.DELETED { background-color: #f35555; }
+.media-theme.DELETED { border:4px solid #f35555; }
+.include-block.DELETED, .include-content.DELETED, .include-content.INSERTED, .include-block.INSERTED {
+    padding:1px 5px 1px 5px;
+}
+
+/*--------------------------------------------------
+  SMC: highlightings
+*/
+.highlight {background-color: #ffff00;}
+.emphasis {font-weight:bold;}
+.italics {font-style:italic;}
+.invers {text-decoration : overline;}
+
+span.dialog     { font-family: Tahoma; font-size: 9pt; }
+span.invalid    { text-decoration: line-through; color: red; }
+
+
+/*--------------------------------------------------
+  SMC: page footnotes
+*/
+div.footnote-ct {
+  margin-top: 2em;
+}
+div.footnote-ct div.footnote-separator {
+  border-bottom: 1px solid #000000; width: 8em;
+}
+div.footnote-ct div.footnote {
+  font-size: 8pt;
+  margin-top: .5em;
+}
+div.footnote-ct div.footnote sup.footnote-char {
+  font-size: 8pt;
+  text-align: right;
+  display: block; float: left;
+  width: 2.5em;
+  position: relative; top: -0.25em;
+}
+div.footnote-ct div.footnote span.footnote-text {
+  display: block; margin-left: 3.5em;
+}
+
+/*--------------------------------------------------
+  SMC: mediasets
+*/
+div.media { margin-top: 1em; }
+div.media > div.media-theme img { margin: 3px; }
+
+/* Border around graphic, if .media-theme within .media */
+div.media > div.media-theme { border: 1px solid #000; text-align: center; }
+
+/* Overwrite width of graphics (style="width:...") */
+div.media > div.media-theme { min-width: 100%; }
+
+/* No border around graphic, if within a table */
+table div.media > div.media-theme { border: none; }
+
+/* media title */
+.media-caption { font-size: 8pt; margin-top: 0.5em;}
+.media-caption-title { font-weight:bold; }
+
+/* media legend */
+div.container-media-legend { margin-top: 0.5em; margin-left: 1em; }
+div.container-media-legend table { width: auto; }
+div.container-media-legend td { font-size: 8pt; width: auto; }
+div.container-media-legend p.legend-text { margin-top:0;}
+span.media-legendTerm { font-weight: bold; }
+div.container-media-legend td { vertical-align: text-bottom; }
+
+/* mediaset with link ==>  hover effect */
+div.media a.link div.media-theme img {
+  margin: 3px;
+}
+div.media a.link div.media-theme {
+  border: 2px solid transparent;
+}
+div.media a.link:hover  div.media-theme {
+  border: 2px solid orange;
+}
+
+/*--------------------------------------------------
+  Embedded SVG
+*/
+svg { overflow: hidden; }
+
+/*--------------------------------------------------
+  SMC: enumerations / lists
+*/
+
+ul.enum-standard,
+ol.enum-standard {
+  margin-left: 3em;
+}
+.enum-standard .enum-standard {
+  margin-top: 0.5em;
+  margin-bottom: 0.5em;
+  margin-left: 2em;
+}
+
+ul.enum-standard > li.enum-element,
+ul.enum-standard > li.enum-element p,
+ol.enum-standard > li.enum-element,
+ol.enum-standard > li.enum-element p {
+  margin-top: 0.5em;
+  margin-bottom: 0;
+}
+ul.enum-standard > li.enum-title,
+ol.enum-standard > li.enum-title {
+  list-style-type: none;
+  list-style-image: none;
+  margin-left:-2.0em;
+  font-weight: bold;
+}
+
+ul.enum-standard.standard,
+ul.enum-standard.Point   {list-style-type: disc;}
+ul.enum-standard.Arrow   {list-style-image:url(icons/arrow.gif);}
+ul.enum-standard.Bullet  {list-style-type: square;}
+ol.enum-standard.Alpha   {list-style-type: lower-alpha;}
+ol.enum-standard.Numeric {list-style-type: decimal;}
+
+ul.enum-standard.Line   { list-style:none; }
+ul.enum-standard.Line li span.line { 
+	float: left; 
+	margin-left: -1.25em;
+	text-align: right;
+}
+
+/*--------------------------------------------------
+  SMC: instructions
+*/
+ol.instruction {
+  list-style-type: decimal;
+  margin-left: 3em;
+}
+ol.instruction.DontNumber {
+  list-style-type: disc;
+  list-style-image: url(icons/arrow.gif);
+}
+ol.instruction > li.step,
+ol.instruction > li.result {
+}
+ol.instruction > li.result {
+	list-style-image: url(icons/result.gif);
+}
+ol.instruction div.par0 {
+}
+ol.instruction div.media {
+}
+ol.instruction div.media p.media-caption {
+}
+
+
+ol.instruction > li.instruction-title {
+  list-style-type: none;
+  list-style-image: none;
+  margin-left:-2.0em;
+  font-weight: bold;
+}
+
+ol.instruction, ol.instruction {list-style: none; counter-reset: iCounter 0;}
+ol.instruction[start="0"],  ol.instruction[start="0"]  {list-style: none; counter-reset: iCounter -1;}
+ol.instruction[start="1"],  ol.instruction[start="1"]  {list-style: none; counter-reset: iCounter  0;}
+ol.instruction[start="2"],  ol.instruction[start="2"]  {list-style: none; counter-reset: iCounter  1;}
+ol.instruction[start="3"],  ol.instruction[start="3"]  {list-style: none; counter-reset: iCounter  2;}
+ol.instruction[start="4"],  ol.instruction[start="4"]  {list-style: none; counter-reset: iCounter  3;}
+ol.instruction[start="5"],  ol.instruction[start="5"]  {list-style: none; counter-reset: iCounter  4;}
+ol.instruction[start="6"],  ol.instruction[start="6"]  {list-style: none; counter-reset: iCounter  5;}
+ol.instruction[start="7"],  ol.instruction[start="7"]  {list-style: none; counter-reset: iCounter  6;}
+ol.instruction[start="8"],  ol.instruction[start="8"]  {list-style: none; counter-reset: iCounter  7;}
+ol.instruction[start="9"],  ol.instruction[start="9"]  {list-style: none; counter-reset: iCounter  8;}
+ol.instruction[start="10"], ol.instruction[start="10"] {list-style: none; counter-reset: iCounter  9;}
+ol.instruction[start="11"], ol.instruction[start="11"] {list-style: none; counter-reset: iCounter 10;}
+ol.instruction[start="12"], ol.instruction[start="12"] {list-style: none; counter-reset: iCounter 11;}
+ol.instruction[start="13"], ol.instruction[start="13"] {list-style: none; counter-reset: iCounter 12;}
+ol.instruction[start="14"], ol.instruction[start="14"] {list-style: none; counter-reset: iCounter 13;}
+ol.instruction[start="15"], ol.instruction[start="15"] {list-style: none; counter-reset: iCounter 14;}
+ol.instruction[start="16"], ol.instruction[start="16"] {list-style: none; counter-reset: iCounter 15;}
+ol.instruction[start="17"], ol.instruction[start="17"] {list-style: none; counter-reset: iCounter 16;}
+ol.instruction[start="18"], ol.instruction[start="18"] {list-style: none; counter-reset: iCounter 17;}
+ol.instruction[start="19"], ol.instruction[start="19"] {list-style: none; counter-reset: iCounter 18;}
+ol.instruction[start="20"], ol.instruction[start="20"] {list-style: none; counter-reset: iCounter 19;}
+ol.instruction:not(.DontNumber):not(.instruction-title) li.step:before {
+  content: counter(iCounter) "."; 
+  counter-increment: iCounter 1; 
+  float: left; 
+  margin-left: -3em; 
+  width: 2.5em; 
+  text-align: right;
+}
+
+/*===================================================================
+	Stylesheet: help_dropdown.css
+	Version:    2.0
+	-------------------------------------------------------------------
+	SMC: DropDown blocks
+	------------------------------------------------------------------- 
+	History:
+	2.0 @ 2020/09/29 16:21:44:
+		First entry in history table.
+===================================================================*/
+.dropdown-body {
+	border-left: 4px solid #ccc;
+  padding-left: 4px;
+	padding-top:  0.1px;
+	margin-top:  -2px;
+}
+.dropdown-title {
+  cursor: pointer;
+  margin-bottom: 0;
+}
+.dropdown-title:hover span { color: #f80; }
+.dropdown-ct .dropdown-title .dropdown-title-text {
+	padding-right: 20px;
+  background-repeat: no-repeat;
+  background-position: 100% 0.2em;
+  background-image:url(icons/dropdown-opened.gif);
+	border-bottom: 2px solid #ccc;
+}
+
+.dropdown-ct.closed .dropdown-body { display:none; }
+.dropdown-ct.closed .dropdown-title .dropdown-title-text {
+	padding-right: 20px;
+  background-repeat: no-repeat;
+  background-position: 100% 0.2em;
+  background-image:url(icons/dropdown-closed.gif);
+	border-bottom: 2px dotted #f80;
+}
+
+details.dropdown-ct summary:hover{color: #f80}
+
+details.dropdown-ct summary:not([class]){
+  font-family: Arial, Helvetica, sans-serif;
+	font-size: 13pt;
+  font-weight: bold;
+  list-style: none;
+}
+details:not([open]) summary:not([class]){
+  padding-right: 20px;
+  background-repeat: no-repeat;
+  background-position: 100% 0.2em;
+  background-image:url(icons/dropdown-closed.gif);
+	border-bottom: 2px dotted #f80;
+}
+
+details[open] summary:not([class]){
+  border-bottom: 2px solid #ccc;
+}
+
+details.dropdown-ct p:not([class]){
+  border-left: 4px solid #ccc;
+  padding-left: 4px;
+	padding-top:  0.1px;
+}
+
+p.dropdown-title {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 13pt;
+  font-weight: bold;
+}
+
+
+/* Toggle button */
+div.ddToggleButtonContainer {
+	position: fixed;
+	z-index: 10;
+	top: 0px; left: 0px;
+	padding-left: 6px;
+	width: 100%;
+	background-color: rgba(248,248,248,0.90);
+}
+div.ddToggleButtonContainer div.ddToggleButton {
+	display: inline-block;
+	border: 1px transparent solid;
+	border-radius: 2px;
+	background-color: transparent;
+	text-align: center;
+	padding: 0px;
+	margin: 0px;
+	margin-left: 4px;
+	cursor: pointer;
+  background-repeat: no-repeat;
+	background-position: center center;
+	width: 20px;
+	height: 20px;
+	opacity: 0.40;
+}
+div.ddToggleButtonContainer div.ddToggleButton:hover {
+	background-color: #eee;
+	border-color: #fff;
+  border-style: inset;
+	opacity: 1.0;
+}
+div.ddToggleButtonContainer div.ddToggleButton.btn-hide {
+	background-image: url(icons/ddToggleHide.png);
+}
+div.ddToggleButtonContainer div.ddToggleButton.btn-reload {
+	background-image: url(icons/ddToggleReload.png);
+}
+div.ddToggleButtonContainer div.ddToggleButton.btn-show {
+	background-image: url(icons/ddToggleShow.png);
+}
+
+/* Hide some elements for printing */
+@media print {
+	div.ddToggleButtonContainer { display: none; }
+	div.dropdown-ct.closed div.dropdown-body { display: block; }
+	div.dropdown-body { border: none; padding-left: 0; }
+	.dropdown-ct .dropdown-title .dropdown-title-text,
+	.dropdown-ct.closed .dropdown-title .dropdown-title-text	{
+		border: none;
+		padding-right: 0;
+		background: none;
+	}
+  
+	div.ManualTitle { display: none; }
+}
+/*=================================================================*/
+
+/*===================================================================
+	Stylesheet: help_fb-opt.css
+	Version:    2.0
+	-------------------------------------------------------------------
+	SMC: Optional parameters of function blocks
+	------------------------------------------------------------------- 
+	History:
+	2.0 @ 2020/09/29 16:21:44:
+		First entry in history table.
+===================================================================*/
+.fb-opt-par_toggle { cursor: pointer; }
+p.fb-opt-par_toggle .fb-opt-par_std,
+p.fb-opt-par_toggle .fb-opt-par_opt
+{
+  width: 16px; height: 16px;
+  background-repeat: no-repeat;
+  background-position: left 2px;
+  cursor: pointer;
+}
+p.fb-opt-par_toggle .fb-opt-par_std {
+  background-image: url(icons/checkbox_0.png);
+  display: inline-block;
+}
+p.fb-opt-par_toggle .fb-opt-par_std.fb-opt-par_optional {
+  display: none;
+}
+
+p.fb-opt-par_toggle .fb-opt-par_opt {
+  background-image: url(icons/checkbox_1.png);
+  display: inline-block;
+}
+p.fb-opt-par_toggle .fb-opt-par_opt.fb-opt-par_optional {
+  display: inline-block;
+}
+
+p.fb-opt-par_toggle .fb-opt-par_std span,
+p.fb-opt-par_toggle .fb-opt-par_opt span
+{ 
+  display: none;
+}
+
+tr.fb-opt-par_opt td:first-child,
+tr.fb-opt-par_opt td:first-child + td,
+tr.fb-opt-par_opt td:first-child + td + td
+{
+  font-style: italic;
+}
+
+.fb-opt-par_opt.fb-opt-par_optional      { display: block; }
+table.fb-opt-par_opt.fb-opt-par_optional { display: table-row; }
+tr.fb-opt-par_opt.fb-opt-par_optional    { display: table-row; }
+.fb-opt-par_std.fb-opt-par_optional      { display: none; }
+
+@media print {
+	.fb-opt-par_opt
+		{ display: inherit; }
+
+	p.fb-opt-par_toggle span.fb-opt-par_opt,
+	p.fb-opt-par_toggle span.fb-opt-par_std
+		{ display: inline-block; background: none; }
+	
+	p.fb-opt-par_toggle span span
+		{ display: inline-block !important; }
+
+	.fb-opt-par_opt      { display: block !important; }
+	table.fb-opt-par_opt { display: table-row !important; }
+	tr.fb-opt-par_opt    { display: table-row !important; }
+	.fb-opt-par_std      { display: none !important; }
+}
+/*=================================================================*/
+
+/*--------------------------------------------------
+  SMC: title page
+*/
+div.container-titlepage { width: 100%; text-align: center; margin-bottom: 4em; }
+  div.container-titleimage {}
+    div.container-titleimage div.media-theme img { margin: 1.5em 0 0; }
+  div.titlepage-title-theme { font-weight: bold; font-size: 24pt; margin-top: 1em; }
+  div.titlepage-title { font-weight: bold; font-size: 18pt; }
+  div.titlepage-optional-title { font-weight: bold; margin: 2em auto; color: #808080; font-size: 13pt; }
+  div.titlepage-date { font-weight: bold; }
+  div.titlepage-footnote { display: none; }
+  div.titlepage-version { font-weight: bold; }
+
+/*--------------------------------------------------
+  SMC: tables
+  ==> TODO: ... 
+*/
+table.content-table-noborder {
+  margin-top: 1em;
+  width: 100%;
+}
+table.content-table-noborder > caption > p.table_desc {
+  margin-top: 0.5em;
+}
+table.content-table-noborder > tbody > tr > th,
+table.content-table-noborder > tbody > tr > td {
+  padding: 0; margin: 0;
+}
+table.content-table-noborder td.content-level0 p {
+  font-size: 8pt;
+  margin: 0;
+}
+
+/*--------------------------------------------------
+  SMC: notice elements
+*/
+
+/* Old deifnitions */
+div.notice {
+  margin: 2em 0;
+  padding: 1em 1.5em;
+  background-color: #eeeeee;
+}
+div.notice p.title {
+  margin-top: 0;
+  font-size: 14pt;
+  margin-bottom:3pt;
+  font-weight: bold;
+}
+
+div.notice p.admonition-title {
+  margin-top: 0;
+  font-size: 14pt;
+  margin-bottom:3pt;
+  font-weight: bold;
+}
+div.notice > * { margin-top: 0; }
+div.notice > * + * { margin-top: 1em; }
+
+div.notice.danger           { border: 3px solid #ff0000; }
+div.notice.warning          { border: 3px solid #ff0000; }
+div.notice.caution          { border: 3px solid #6699ff; }
+div.notice.attention        { border: 3px solid #ff0000; }
+
+
+/* General notices // Allgemeine Hinweise               */
+div.notice.info             { border: 3px solid #6699ff; }
+
+/* Automation Help (notices without title)            
+                   (Hinweise ohne Titel                 */
+div.notice.danger.no-title  {}
+div.notice.redundancy       { border: 4px solid #cc9900; }
+div.notice.info.no-title    {}
+
+div.notice.important        { border: 3px solid #ff0000; }
+div.notice.tips             { border: 3px solid #6699ff; }
+
+/* Further notices // Weitere Hinweise                  */
+div.notice.help             { border: 3px solid #999999; }
+div.notice.help   p.title   { color: #999999; }
+div.notice.tip              { border: 3px solid #999999; }
+div.notice.tip    p.title   { color: #999999; }
+
+div.notice.remark           { border: 3px solid #999999; }
+div.notice.example          { border: 3px solid #008000; }
+div.notice.result           { border: 3px solid #00e000; }
+
+div.notice.demo             { border: 3px solid #08f21d; }
+
+
+
+/*--------------------------------------------------
+  SMC: definitions for characterizations in SMC
+				--> Foreground/Background colors
+				--> borders for table rows/cells
+				--> alignment of media elements
+        
+       Because of backward compatibility some older
+       css class selectors are still included,
+       although they are not defined in SMC any more.
+*/
+.col-bg-gray-20              { background-color: #cccccc !important; }
+.col-bg-gray-40              { background-color: #999999 !important; }
+.col-bg-gray-60              { background-color: #666666 !important; }
+.col-bg-gray-80              { background-color: #333333 !important; }
+
+.col-bg-blue                 { background-color: #0000ff !important; }
+.col-bg-blue-mid             { background-color: #85aeff !important; }
+.col-bg-blue-light           { background-color: #daeef3 !important; }
+
+.col-bg-gray-light, .col-bg-lightgray, .col-bg-gray-06
+                             { background-color: #eeeeee !important; }
+.col-bg-gray-mid,   .col-bg-gray,      .col-bg-gray-23
+                             { background-color: #c4c4c4 !important; }
+.col-bg-gray-dark,  .col-bg-darkgray,  .col-bg-gray-40
+                             { background-color: #999999 !important; }
+
+.col-bg-green                { background-color: #228822 !important; }
+.col-bg-green-mid            { background-color: #92d050 !important; }
+.col-bg-green-light          { background-color: #cdf3cd !important; }
+
+.col-bg-orange,
+.col-bg-orange-bur           { background-color: #ff8800 !important; }
+.col-bg-orange-mid           { background-color: #ffc000 !important; }
+.col-bg-orange-light         { background-color: #fbd496 !important; }
+
+.col-bg-pink                 { background-color: #ff9fdf !important; }
+
+.col-bg-purple-mid           { background-color: #d685ff !important; }
+.col-bg-purple-light         { background-color: #edc9ff !important; }
+
+.col-bg-red                  { background-color: #ff0000 !important; }
+.col-bg-red-mid              { background-color: #ff4040 !important; }
+.col-bg-red-light            { background-color: #ff8080 !important; }
+
+.col-bg-yellow               { background-color: #ffff00 !important; }
+.col-bg-yellow-light         { background-color: #ffff99 !important; }
+
+.col-fg-blue      { color: #0000ff !important; }
+.col-fg-brown     { color: #703020 !important; }
+.col-fg-green     { color: #228822 !important; }
+.col-fg-magenta   { color: #ff00ff !important; }
+.col-fg-orange    { color: #ff8000 !important; }
+.col-fg-red       { color: #ff0000 !important; }
+.col-fg-white     { color: #ffffff !important; }
+
+.col-fg-gray-20   { color: #cccccc !important; }
+.col-fg-gray-40   { color: #999999 !important; }
+.col-fg-gray-60   { color: #666666 !important; }
+.col-fg-gray-80   { color: #333333 !important; }
+
+.tbl-border-style-double,
+tr.tbl-border-style-double > td
+                         { border-bottom-style: double; border-bottom-width: 6px; }
+
+.txt-underline    { text-decoration: underline; }
+.txt-nowrap       { white-space: nowrap; }
+
+.border-none,
+.media.border-none .media-theme
+                         { border: none; margin: 0 0; }
+
+.media.img-left .media-theme,
+.media.img-left .media-caption
+                         { text-align: left; }
+
+.media.img-right .media-theme,
+.media.img-right .media-caption
+                         { text-align: right; }
+
+.media-theme.img-center { text-align: center; }
+.media-theme.img-left     { text-align: left; }
+.media-theme.img-right   { text-align: right; }
+
+p.par-center     {text-align: center;}
+p.par-justify   {text-align: justify;}
+p.par-left         {text-align: left;}
+p.par-right       {text-align: right;}
+            
+/*--------------------------------------------------
+  SMC: other stuff
+*/
+.element-hidden    /* SMC characterization: "Hide element" in help */
+  { display: none; }
+
+
+/*--------------------------------------------------
+  SMC: colorer - syntax highlighting
+*/
+span.def-Comment
+  { color: #008000; } /* darkgreen */
+
+span.def-String
+  { color: #FF00FF; } /* magenta   */
+
+span.def-Directive,
+span.def-Keyword
+  { color: #0000FF; } /* blue      */
+
+
+span.c-PreprocIncludeEdge,
+span.c-PreprocInclude
+  { color: #800000; } /* darkred   */
+
+
+span.as-c-Keyword-Datatype,
+span.as-st-Keyword-Datatype,
+span.as-ab-Keyword-Datatype,
+span.as-il-Keyword-Datatype,
+span.as-cnc1-Keyword-Datatype,
+span.as-cnc2-Keyword-Datatype
+  { color: #FF00FF; } /* magenta*/
+
+
+/*--------------------------------------------------
+  SMC: TODO ==> not yet tested!
+*/
+
+.content-table-caption {font-weight:bold;margin-top:4px;width:100%;}
+.content-tableTitle {width:100%;}
+
+/**/
+.content-table-border {border:solid 1px #FFFFFF;border-collapse:collapse;padding:4px;width:100%;}
+.content-table-noborder {padding:2px;width:100%;}
+.content-tableHead {border:solid 1px #FFFFFF;background-color:#D7DEE3;padding:4px;font-weight:bold;}
+.content-tableBody {border:solid 1px #FFFFFF;background-color:#EFEFEF;padding:4px;}
+.content-tableFirstRow {border:solid 1px #FFFFFF;background-color:#D7DEE3;padding:4px;}
+/**/
+
+.fifty_container  {overflow:hidden;padding:5px;}
+.fiftytext        {float:left;width:49%;}
+.fiftymedia       {float:right;width:49%;}
+
+.TextintensivBildbetont             {overflow:hidden;padding:5px;}
+.TextintensivBildbetont > div.text  {float:right;width:67%;}
+.TextintensivBildbetont > div.media {float:left;width:32%;}
+.TextintensivTextbetont             {overflow:hidden;padding:5px;}
+.TextintensivTextbetont > div.text  {float:left;width:67%;}
+.TextintensivTextbetont > div.media {float:right;width:32%;}
+
+.BildTabelle                        {overflow:hidden;padding:5px;}
+.BildTabelle > div.text             {float:left;width:32%;}
+.BildTabelle > div.media            {float:right;width:67%;text-align:right;}
+
+.GanzeBreite          {padding:5px;}
+div.standard          {padding:5px;}
+div.standard div img  {display:block;margin:3px;}
+.text h3,.fiftytext h3,.fiftymedia h3
+                      {margin-top:0pt;}
+
+/* Hidden block */
+
+.block-hidden{ font-style: italic; margin-top: 10px; padding: 5px 0; background:#E5E5E5 url(icons/block_hidden.gif) no-repeat 10px 50%; padding-left: 47px;}
+.block-hidden .title{ padding-right: 4px;}

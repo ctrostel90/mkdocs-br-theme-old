@@ -1,0 +1,5 @@
+site_name: MkDocs B&R Industrial Theme
+theme:
+    name: brtheme
+
+
