@@ -1,13 +1,12 @@
 from setuptools import setup, find_packages
 
-VERSION = '1.0'
-
+VERSION = '0.1.0'
 
 setup(
     name="mkdocs-br-industrial-theme",
     version=VERSION,
     url='https://github.com/brcclark/mkdocs-br-theme',
-    license='BSD',#?????
+    license='BSD',
     description='Theme to match with the standard B&R Industrial Automation documentation styling.',
     author='Connor Trostel',
     author_email='connor.trostel@br-automation.com',
