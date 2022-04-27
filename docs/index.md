@@ -58,3 +58,9 @@ First Header  | Second Header
 ------------- | -------------
 Content Cell  | Content Cell
 Content Cell  | Content Cell
+
+
+# Known Issues
+- Lists
+- Drop Down/Show/Hide functionality
+  - This can be implemented using the newer python `details` and `summary` elements however, these are not supported in the AS Help which would cause an issue should someone want to export for them.
