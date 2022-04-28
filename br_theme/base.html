@@ -23,14 +23,12 @@
       }
     }
     window.onload = function() {
-      console.log("Run?");
         var details = document.getElementsByTagName('details');
         for(var i = 0; i < details.length; i++) {
             var detail = details[i];
             var cls = detail.className;
             var dropdownCls = "dropdown-ct";
             var indx = cls.indexOf(dropdownCls);
-            console.log(cls + ":" + indx);
             if(indx >= 0){
               detail.onclick = toggleDropDown.bind(detail,detail);
             }            
