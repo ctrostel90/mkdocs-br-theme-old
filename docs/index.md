@@ -17,20 +17,20 @@ theme:
     name: brtheme
 ```
 ## Extensions
-The adnomitions python markdown extension needs to be added to your mkdocs.yml file.
+The adnomitions and pymdownx.details python markdown extension needs to be added to your mkdocs.yml file.
 
-```
+``` yaml
 markdown_extensions:
     - admonition
+    - pymdownx.details
 ```
 
 ## General Markdown
 
-  
 
 ### Blue Tip Callout
 This is accomplished using admonitions with the `notice` and `tips` classes. To implement, the following syntax can be used.
-```
+``` markdown
     !!! notice tips "Optional Title"
         Notice text
 ```
@@ -39,7 +39,7 @@ This is accomplished using admonitions with the `notice` and `tips` classes. To 
 
 ### Red Danger Callout
 This is accomplished using admonitions with the `notice` and `danger` classes. To implement, the following syntax can be used.
-```
+``` markdown
     !!! notice danger "Optional Title"
         Notice text
 ```
@@ -48,7 +48,7 @@ This is accomplished using admonitions with the `notice` and `danger` classes. T
 
 ## Tables
 Tables can be used with normal markdown syntax
-```
+``` markdown
 First Header  | Second Header
 ------------- | -------------
 Content Cell  | Content Cell
@@ -59,8 +59,16 @@ First Header  | Second Header
 Content Cell  | Content Cell
 Content Cell  | Content Cell
 
+## DropDown
+Drop down dynamic show/hide elements are also supported. This is accomplished using the markdown extension `details`.  To create a drop down the following syntax must be used:
+``` markdown
+    ??? dropdown-ct "Optional Title"
+        Make sure to use include the dropdown-ct class name.
+```
+??? dropdown-ct "Optional Title"
+    Make sure to use include the dropdown-ct class name.
 
-# Known Issues
-- Lists
-- Drop Down/Show/Hide functionality
-  - This can be implemented using the newer python `details` and `summary` elements however, these are not supported in the AS Help which would cause an issue should someone want to export for them.
+
+
+!!! notice tips "Known Issues"
+    Lists do not currently work.
