@@ -9,6 +9,35 @@
   <link rel="stylesheet" href="{{ " css/help.css"|url }}">
   <link rel="stylesheet" href="{{ " css/styles.css"|url }}">
 
+  <!-- This is to handle the showing/hidding of elements in a dropdown -->
+  <script type="text/javascript">
+    function toggleDropDown(elem){
+      var children = elem.children;
+      for(var i=0; i < children.length; i++){
+        if(children[i].style.display == 'none' || children[i].nodeName == 'SUMMARY'){
+          children[i].style.display = '';
+        }
+        else{
+          children[i].style.display = 'none';
+        }
+      }
+    }
+    window.onload = function() {
+      console.log("Run?");
+        var details = document.getElementsByTagName('details');
+        for(var i = 0; i < details.length; i++) {
+            var detail = details[i];
+            var cls = detail.className;
+            var dropdownCls = "dropdown-ct";
+            var indx = cls.indexOf(dropdownCls);
+            console.log(cls + ":" + indx);
+            if(indx >= 0){
+              detail.onclick = toggleDropDown.bind(detail,detail);
+            }            
+        }
+    }
+  </script>
+
   {% for path in config.extra_css %}
   <link href="{{ path|url }}" rel="stylesheet">
   {% endfor %}
