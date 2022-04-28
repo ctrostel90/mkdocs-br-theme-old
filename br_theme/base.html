@@ -14,11 +14,11 @@
     function toggleDropDown(elem){
       var children = elem.children;
       for(var i=0; i < children.length; i++){
-        if(children[i].style.display == 'none' || children[i].nodeName == 'SUMMARY'){
-          children[i].style.display = '';
+        if(children[i].style.display == 'none' || children[i].nodeName == '' ){
+          children[i].style.display = 'none';
         }
         else{
-          children[i].style.display = 'none';
+          children[i].style.display = '';
         }
       }
     }
@@ -31,7 +31,8 @@
             var indx = cls.indexOf(dropdownCls);
             if(indx >= 0){
               detail.onclick = toggleDropDown.bind(detail,detail);
-            }            
+            }
+                        
         }
     }
   </script>
