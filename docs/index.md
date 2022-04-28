@@ -68,7 +68,7 @@ Drop down dynamic show/hide elements are also supported. This is accomplished us
 ??? dropdown-ct "Optional Title"
     Make sure to use include the dropdown-ct class name.
 
-
-
 !!! notice tips "Known Issues"
-    Lists do not currently work.
+    - Lists do not currently work.
+    - codeblocks
+    - Probably other things as well..
