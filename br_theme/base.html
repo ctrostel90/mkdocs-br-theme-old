@@ -5,9 +5,9 @@
   <meta http-equiv="x-ua-compatible" content="ie=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-  <link rel="stylesheet" href="{{ " css/theme.css"|url }}">
-  <link rel="stylesheet" href="{{ " css/help.css"|url }}">
-  <link rel="stylesheet" href="{{ " css/styles.css"|url }}">
+  <link rel="stylesheet" href="{{ "css/theme.css"|url }}">
+  <link rel="stylesheet" href="{{ "css/help.css"|url }}">
+  <link rel="stylesheet" href="{{ "css/styles.css"|url }}">
 
   <!-- This is to handle the showing/hidding of elements in a dropdown -->
   <script type="text/javascript">
@@ -52,6 +52,11 @@
   {% block content %}
   {{ page.content }}
   {% endblock %}
+
+  {% if page.url_to_print_page %}
+    <a href="{{ page.url_to_print_page }}" title="Print Site" class="md-content__button md-icon">
+    </a>
+  {% endif %}
 </body>
 
 </html>
