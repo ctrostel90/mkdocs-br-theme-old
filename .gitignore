@@ -1,4 +1,5 @@
 *.pyc
 dist/
-mkdocs_basic_theme.egg-info/
+mkdocs_br_industrial_theme.egg-info/
 site/
+build/

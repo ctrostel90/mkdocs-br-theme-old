@@ -2,6 +2,13 @@ site_name: MkDocs B&R Industrial Theme
 theme:
     name: brtheme
 
+plugins:
+    - print-site:
+        enumerate_headings: true
+        enumerate_figures: true
+        add_cover_page: true
+        path_to_pdf: "assets/site.pdf"
+
 markdown_extensions:
     - admonition
     - pymdownx.details

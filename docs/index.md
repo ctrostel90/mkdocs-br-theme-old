@@ -68,7 +68,10 @@ Drop down dynamic show/hide elements are also supported. This is accomplished us
 ??? dropdown-ct "Optional Title"
     Make sure to use include the dropdown-ct class name.
 
-!!! notice tips "Known Issues"
-    - Lists do not currently work.
-    - codeblocks
-    - Probably other things as well..
+    You should be able to embed numerous of these levels as well.
+    
+    ??? dropdown-ct "Another One"
+        One more time.
+
+
+[Known Issues](Known%20Issues.md)
