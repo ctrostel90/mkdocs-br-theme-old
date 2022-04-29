@@ -27,6 +27,20 @@ markdown_extensions:
 
 ## General Markdown
 
+### Lists
+It is possible to create basic lists with normal markdown syntax:
+
+```
+    - List Item 1
+    - Item 2
+    - Here ya go
+```
+
+- List Item 1
+- Item 2
+- Here ya go
+
+As with most markdown, make sure to include extra whitespace above the list to have the styling work.
 
 ### Blue Tip Callout
 This is accomplished using admonitions with the `notice` and `tips` classes. To implement, the following syntax can be used.
