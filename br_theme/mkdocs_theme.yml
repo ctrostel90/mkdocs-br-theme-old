@@ -1,1 +1,4 @@
 include_search_page: true
+
+static_templates:
+  - 404.html
