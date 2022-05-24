@@ -4,9 +4,7 @@ This is a base theme for use with MkDocs in the style of B&R Industrial Automati
 
 Example of documentation can be found here: [Example](https://brcclark.github.io/)
 
-At the moment, the theme can be installed by running a pip install command in the root directory. Additional detail can be found at documentation linked above.
-
 ```
-pip install .
+pip install mkdocs-br-industrial-theme
 ```
 
